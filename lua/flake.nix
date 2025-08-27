@@ -15,10 +15,9 @@
       devShells.default = pkgs.mkShell {
         packages = with pkgs; [
           # pick exactly one interpreter; comment the other
-          (lua5_4.withPackages (ps: with ps; [luafilesystem luaposix]))
-          # luajit
+          # (lua5_4.withPackages (ps: with ps; [luafilesystem luaposix]))
+          luajit
           lua-language-server # LSP for editors
-          luacheck # static analysis
           stylua # formatter
           luarocks # rock management
           readline # nicer REPL history

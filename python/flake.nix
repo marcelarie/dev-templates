@@ -24,7 +24,7 @@
        * present. For safety, removal should
        * be a manual step, even if trivial.
        */
-      version = "3.13";
+      version = "3.11";
     in
     {
       devShells = forEachSupportedSystem ({ pkgs }:
@@ -61,6 +61,9 @@
             packages = with python.pkgs; [
               venvShellHook
               pip
+              pkgs.bashInteractive
+              pkgs.bash-completion
+              python-lsp-server
 
               /* Add whatever else you'd like here. */
               # pkgs.basedpyright
