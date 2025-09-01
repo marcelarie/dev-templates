@@ -1,5 +1,5 @@
 {
-  description = "A Nix-flake-based Nickel development environment";
+  description = "A Nix-flake-based Typst development environment";
 
   inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
 
@@ -17,7 +17,9 @@
         inputs.nixpkgs.lib.genAttrs supportedSystems (
           system:
           f {
-            pkgs = import inputs.nixpkgs { inherit system; };
+            pkgs = import inputs.nixpkgs {
+              inherit system;
+            };
           }
         );
     in
@@ -26,7 +28,9 @@
         { pkgs }:
         {
           default = pkgs.mkShell {
-            packages = with pkgs; [ nickel ];
+            packages = with pkgs; [
+              typst
+            ];
           };
         }
       );
